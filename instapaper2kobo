@@ -6,11 +6,8 @@ CONFIG_PATH=~/.instapaper2koborc
 echo "# reading config file ${CONFIG_PATH}"
 source ${CONFIG_PATH}
 
-echo "# downloading epub to dropbox"
-perl ${CURRENT_DIR}/lwp.pl ${INSTAPAPER_USERNAME} ${INSTAPAPER_PASSWORD}
-
-echo "# converting for kobo"
-bash ${CURRENT_DIR}/instapaper_epub_correcter.sh ${DROPBOX_PATH}/Public/instapaper.epub
+echo "# converting feed to dropbox using calibre"
+ebook-convert Instapaper.recipe ${DROPBOX_PATH}/Public/instapaper.epub --username ${INSTAPAPER_USERNAME} --password ${INSTAPAPER_PASSWORD}
 
 echo
 echo "# All done, now wait for dropbox sync"

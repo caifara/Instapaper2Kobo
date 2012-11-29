@@ -39,9 +39,7 @@ Furthermore it would be useful to archive articles once the epub has been downlo
 # prerequisites
 
 * bash
-* perl
-* tidy
-* zip/unzip
+* calibre installed with the command line tools
 * dropbox
 
 # Installing the script

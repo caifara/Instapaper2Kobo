@@ -3,6 +3,8 @@ use v5.10;
 use HTTP::Request;
 use LWP::UserAgent;
 use HTTP::Cookies;
+use IO::Socket::SSL;
+use Mozilla::CA;
 
 my $user = $ARGV[0];
 my $pass = $ARGV[1];
@@ -19,7 +21,7 @@ my $req = HTTP::Request->new( POST => 'https://www.instapaper.com/user/login',
 my $res = $ua->request($req);
 
 $res->content =~ m/Logging in/g ?
-    say 'Logged in' : ( say 'Couldn\'t Log In' and exit );
+    say 'Logged in' : ( say 'Couldn\'t Log In' and exit 1 );
 
 say 'Getting epub...';
 my $epub = $ua->request(

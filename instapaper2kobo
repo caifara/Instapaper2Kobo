@@ -7,10 +7,7 @@ echo "# reading config file ${CONFIG_PATH}"
 source ${CONFIG_PATH}
 
 echo "# downloading epub to dropbox"
-perl ${CURRENT_DIR}/lwp.pl ${INSTAPAPER_USERNAME} ${INSTAPAPER_PASSWORD}
-
-echo "# converting for kobo"
-bash ${CURRENT_DIR}/instapaper_epub_correcter.sh ${DROPBOX_PATH}/Public/instapaper.epub
+perl ${CURRENT_DIR}/lwp.pl ${INSTAPAPER_USERNAME} ${INSTAPAPER_PASSWORD} || exit
 
 echo
 echo "# All done, now wait for dropbox sync"

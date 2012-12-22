@@ -21,27 +21,20 @@ making this 'hack' obsolete)
 # The idea
 
 1. Have a shell script to download the Instapaper epub.
-2. Convert the epub to make it readable on the Kobo Touch
-3. Save it to Dropbox Public folder
-4. Make a bookmark in the Kobo browser to that public Dropbox file
+2. Save it to Dropbox Public folder
+3. Make a bookmark in the Kobo browser to that public Dropbox file
 
 In order to get a new epub you have to:
 
-1. Run the shell script on their computer
+1. Run the shell script on your computer
 2. Load the bookmark on your Kobo
 
-The cycle could off course be shortened one extra step (if Kobo doesn't
-step up and resolve this properly) by doing the work on a
-server on request. This may become an exercise for me later on. 
-
-Furthermore it would be useful to archive articles once the epub has been downloaded.
+Setting up a cron job may cut the first step if you wish.
 
 # prerequisites
 
 * bash
 * perl
-* tidy
-* zip/unzip
 * dropbox
 
 # Installing the script
@@ -54,7 +47,9 @@ Furthermore it would be useful to archive articles once the epub has been downlo
         INSTAPAPER_PASSWORD="..."
         DROPBOX_PATH="/absolute/path"
 
-
+* install some cpan modules:
+  * run `sudo cpan` (you may have to configure cpan then (just press yes))
+  * run `install Mozilla::CA`
 * you may want to alias the script in your .bashrc or .zshrc or maybe
   even alter your $PATH to be able to call instapaper2kobo directly
 
